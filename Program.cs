@@ -25,8 +25,14 @@ namespace Dapper_Introduction
             string selectQuery = "SELECT * FROM employees";
 
             List<Employee> employees = connection.Query<Employee>(selectQuery).ToList();
-            
-       
+
+            employee.Salary = 140000;
+            string updateQuery = "UPDATE employees SET Salary = @Salary WHERE Id = @Id";
+            connection.Execute(updateQuery, employee);
+
+            int employeeIdToDelete = 1;
+            string deleteQuery = "DELETE FROM employees WHERE Id = @Id";
+            connection.Execute(deleteQuery, new { Id = employeeIdToDelete });
         }
     }
 }
