@@ -112,6 +112,7 @@ namespace Dapper_Introduction
 
             List<Employee> employees = connection.Query<Employee>(selectQuery).ToList();
 
+
             employee.Salary = 140000;
             string updateQuery = "UPDATE employees SET Salary = @Salary WHERE Id = @Id";
             connection.Execute(updateQuery, employee);
@@ -119,6 +120,7 @@ namespace Dapper_Introduction
             int employeeIdToDelete = 1;
             string deleteQuery = "DELETE FROM employees WHERE Id = @Id";
             connection.Execute(deleteQuery, new { Id = employeeIdToDelete });
+       
         }
     }
 }
