@@ -50,12 +50,16 @@ This program performs the following CRUD operations on the `employees` table:
 1. **Creating Data (C - Create)**: It inserts an employee record into the `employees` table with a name, age, and salary. You can customize the data in the `Employee` object:
 
    ```csharp
-   var employee = new Employee
-   {
-       Name = "Aidre",
-       Age = 30,
-       Salary = 130000
-   };
+    var employee = new Employee
+    {
+        Name = "Aidre",
+        Age = 30,
+        Salary = 130000
+    };
+
+            string insertQuery = "INSERT INTO employees (Name, Age, Salary) VALUES (@Name, @Age, @Salary)";
+
+            connection.Execute(insertQuery, employee);
    ```
 
 2. **Reading Data (R - Read)**: It retrieves all employee records from the `employees` table and stores them in a list of `Employee` objects.
