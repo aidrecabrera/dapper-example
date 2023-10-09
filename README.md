@@ -57,9 +57,9 @@ This program performs the following CRUD operations on the `employees` table:
         Salary = 130000
     };
 
-            string insertQuery = "INSERT INTO employees (Name, Age, Salary) VALUES (@Name, @Age, @Salary)";
+    string insertQuery = "INSERT INTO employees (Name, Age, Salary) VALUES (@Name, @Age, @Salary)";
 
-            connection.Execute(insertQuery, employee);
+    connection.Execute(insertQuery, employee);
    ```
 
 2. **Reading Data (R - Read)**: It retrieves all employee records from the `employees` table and stores them in a list of `Employee` objects.
